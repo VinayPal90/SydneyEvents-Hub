@@ -1,46 +1,22 @@
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import User from '../models/User.js'; // Extension .js zaroori hai ESM mein
+import dotenv from 'dotenv';
 
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
+dotenv.config();
 
-passport.deserializeUser(async (id, done) => {
-  try {
-    const user = await User.findById(id);
-    done(null, user);
-  } catch (err) {
-    done(err, null);
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "/auth/google/callback"
+  },
+  (accessToken, refreshToken, profile, done) => {
+    // Yahan hum user profile return kar rahe hain
+    // Real project mein yahan user ko DB mein save karte hain
+    return done(null, profile);
   }
-});
+));
 
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: process.env.CALLBACK_URL || "http://localhost:5000/auth/google/callback",
-      proxy: true
-    },
-    async (accessToken, refreshToken, profile, done) => {
-      try {
-        let user = await User.findOne({ googleId: profile.id });
-        if (user) return done(null, user);
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((obj, done) => done(null, obj));
 
-        user = await User.create({
-          googleId: profile.id,
-          displayName: profile.displayName,
-          email: profile.emails[0].value,
-          photo: profile.photos[0].value
-        });
-        done(null, user);
-      } catch (err) {
-        done(err, null);
-      }
-    }
-  )
-);
-
-// IS LINE KO DHAYAN SE DEKHO - Ye change karni hai
 export default passport;
