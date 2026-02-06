@@ -10,14 +10,17 @@ const Dashboard = () => {
   // Default image link agar scraping mein image miss ho jaye
   const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80";
 
-  const fetchEvents = async () => {
-    try {
-      const res = await axios.get(`${API_BASE_URL}/api/admin/events?search=${search}`);
-      setEvents(res.data);
-    } catch (err) {
-      console.error("Fetch error:", err);
-    }
-  };
+  // Dashboard.jsx mein fetchEvents function update karein
+const fetchEvents = async () => {
+  try {
+    const res = await axios.get(`${API_BASE_URL}/api/admin/events?search=${search}`, {
+      withCredentials: true // Google login session ko use karne ke liye zaroori hai
+    });
+    setEvents(res.data);
+  } catch (err) {
+    console.error("Fetch error:", err);
+  }
+};
 
   useEffect(() => { 
     fetchEvents(); 
