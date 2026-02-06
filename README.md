@@ -1,10 +1,9 @@
-🚀 SydneyEvents Hub - MERN Stack Event Tracker
+# 🎉 SydneyEvents Hub – Event Management Platform
 
-SydneyEvents Hub is a full-stack MERN application that automatically scrapes, stores, and manages live events happening across Sydney. It features a real-time scraper, a public event gallery, and a secure admin dashboard with Google OAuth.
+SydneyEvents Hub is a full-stack MERN web application that allows users to **browse events** and provides an **admin/dashboard panel** to manage events efficiently.  
+The platform is designed for seamless event discovery and management with a clean and responsive UI.
 
-Live Website: https://sydneyevents-hub.onrender.com
-
-Backend API: https://sydneyevents-hub-backend.onrender.com
+🌐 Live Demo: https://sydneyevents-hub.onrender.com
 
 🌐 Live Links
 
@@ -12,52 +11,126 @@ Backend API: https://sydneyevents-hub-backend.onrender.com
 
     Backend API: https://sydneyevents-hub-backend.onrender.com
 
-✨ Key Features
+## 🚀 Features
 
-    Automated Web Scraper: Scrapes live event data (Title, Date, Venue, Description) using Cheerio and Node-cron.
+- 🔐 Dashboard Login for event management
+- 📅 Browse upcoming events
+- ➕ Create, update & delete events (Dashboard)
+- 📊 Centralized dashboard for event control
+- 📱 Fully responsive design
+- ⚡ Fast and user-friendly interface
 
-    Database Sync: Automatically synced 72 live events into MongoDB Atlas.
+---
 
-    Admin Dashboard: Secure panel to search, filter, and "Import" events for featured display.
+## 🛠️ Tech Stack
 
-    Google OAuth 2.0: Secure login for administrators using Google accounts.
+**Frontend**
+- React.js
+- Axios
+- Tailwind CSS
+- React Router
 
-    Lead Capture: Integrated "Get Tickets" interest form for user data collection.
 
-🛠️ Tech Stack
+**Backend**
+- Node.js
+- Express.js
+- Passport.js (Google Strategy)
 
-    Frontend: React.js, Tailwind CSS, Axios, React Router.
+**Database**
+- MongoDB (MongoDB Atlas)
 
-    Backend: Node.js, Express.js, Passport.js (Google Strategy).
+**Deployment**
+- Full application deployed on Render
 
-    Database: MongoDB Atlas.
-
-    Deployment: Render (Frontend & Backend).
+---
 
 📸 Screenshots
 1. Public Event Gallery
-<img width="1918" height="877" alt="image" src="https://github.com/user-attachments/assets/9569a624-79b9-46d8-8948-82b06e244b85" />
+
+<img width="1919" height="878" alt="image" src="https://github.com/user-attachments/assets/ab5edcea-c0aa-43ec-80bb-da6c0fa89636" />
 
 2. Admin Dashboard (Event Management)
-<img width="1919" height="881" alt="image" src="https://github.com/user-attachments/assets/ef65dba0-fbaa-46f2-8bcc-d4659514fc70" />
 
-🚀 Installation & Local Setup
+<img width="1919" height="879" alt="image" src="https://github.com/user-attachments/assets/9e28a0ec-755f-4c3a-8b37-6ea7d1f8d3f3" />
 
-    Clone the repo:
-    Bash
 
-    git clone https://github.com/VinayPal90/SydneyEvents-Hub.git
+---
 
-    Setup Backend:
+## ⚙️ How to Run Locally
 
-        Go to backend folder, run npm install.
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/your-username/sydneyevents-hub.git
+````
 
-        Create a .env file with MONGO_URI, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, and CALLBACK_URL.
+---
 
-        Run npm run dev.
+### 2️⃣ Install dependencies
 
-    Setup Frontend:
+**Backend**
 
-        Go to frontend folder, run npm install.
+```bash
+cd server
+npm install
+```
 
-        Run npm run dev.
+**Frontend**
+
+```bash
+cd client
+npm install
+```
+
+---
+
+### 3️⃣ Environment Variables
+
+Create a `.env` file inside the `server` folder and add:
+
+```
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+```
+
+---
+
+### 4️⃣ Run the application
+
+**Backend**
+
+```bash
+npm start
+```
+
+**Frontend**
+
+```bash
+npm start
+```
+
+---
+
+## 📁 Folder Structure
+
+```
+sydneyevents-hub/
+ ┣ client/        # React frontend
+ ┣ server/        # Node & Express backend
+ ┣ README.md
+```
+
+## 🎯 Project Objective
+
+SydneyEvents Hub aims to:
+
+* Provide a simple platform to explore events
+* Offer an admin/dashboard interface to manage events
+* Demonstrate real-world MERN stack implementation
+
+
+## 👨‍💻 Author
+
+**Vinay Pal**
+Aspiring Full Stack MERN Developer
+GitHub: https://github.com/VinayPal90
