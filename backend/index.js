@@ -18,8 +18,10 @@ const app = express();
 // Middleware
 // Deployment ke waqt FRONTEND_URL .env se uthayega
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173'
+  origin: "https://sydneyevents-hub.onrender.com", // Aapka live frontend URL
+  credentials: true
 }));
+
 app.use(express.json());
 
 // MongoDB Connection aur Initial Sync
